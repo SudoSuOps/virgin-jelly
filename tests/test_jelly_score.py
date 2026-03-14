@@ -145,6 +145,26 @@ class TestJellyScorer:
         assert result.gates.concept_present is True
         assert result.cell_id.startswith("HIVE-AVI-")
 
+    def test_domain_codes_in_cell_id(self):
+        """All 13 domains should produce correct 3-letter codes in cell IDs."""
+        from royal_jelly.protocol import DOMAIN_CODES, DOMAIN_CONCEPTS
+        for domain, code in DOMAIN_CODES.items():
+            scorer = JellyScorer(domain=domain, source_weight=0.85)
+            # Use domain-specific terms so concept gate passes
+            concepts = DOMAIN_CONCEPTS.get(domain, [])
+            terms = " ".join(concepts[:5]) if concepts else "test content"
+            pair = _make_pair(
+                f"Explain {terms}",
+                f"Analysis of {terms}. This covers {' and '.join(concepts[:8])}. "
+                f"Therefore the implications are significant because of these factors. "
+                f"If we evaluate the data then the conclusion follows logically.",
+            )
+            result = scorer.score(pair)
+            assert result.cell_id.startswith(f"HIVE-{code}-"), (
+                f"domain={domain}: expected HIVE-{code}-, got {result.cell_id}"
+            )
+            assert len(code) == 3, f"domain={domain}: code {code!r} is not 3 chars"
+
     def test_entropy_health_configurable(self):
         """Entropy health is batch-level and configurable at scorer init."""
         pair = _make_pair(

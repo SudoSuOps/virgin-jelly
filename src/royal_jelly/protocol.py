@@ -66,6 +66,17 @@ ADVERSARIAL_PENALTY_CAP = 0.50
 STALENESS_THRESHOLD_DAYS = 365
 
 # ---------------------------------------------------------------------------
+# Domain codes — 3-letter codes for cell IDs (HIVE-{CODE}-{fingerprint[:12]})
+# ---------------------------------------------------------------------------
+DOMAIN_CODES = {
+    "cre": "CRE", "aviation": "AVI", "medical": "MED",
+    "ai": "AIS", "economic": "ECO", "energy": "NRG",
+    "climate": "CLM", "crypto": "CRY", "legal": "LGL",
+    "finance": "FIN", "software": "SFT", "supply_chain": "SCH",
+    "patents": "PAT",
+}
+
+# ---------------------------------------------------------------------------
 # Domain concept dictionaries (subset — full lists in swarmrouter)
 # ---------------------------------------------------------------------------
 DOMAIN_CONCEPTS = {

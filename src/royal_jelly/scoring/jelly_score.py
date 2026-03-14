@@ -28,7 +28,7 @@ from royal_jelly.models.score import (
 )
 from royal_jelly.models.signal import SignalOrigin
 from royal_jelly.models.tier import HoneyTier, tier_from_score
-from royal_jelly.protocol import DOMAIN_CONCEPTS, JELLY_WEIGHTS, SOURCE_WEIGHTS
+from royal_jelly.protocol import DOMAIN_CODES, DOMAIN_CONCEPTS, JELLY_WEIGHTS, SOURCE_WEIGHTS
 from royal_jelly.scoring.adversarial import SourceFaultDetector
 from royal_jelly.scoring.gates import run_all_gates
 
@@ -250,7 +250,8 @@ class JellyScorer:
             fingerprint_uniqueness=fp_unique,
         )
 
-        cell_id = f"HIVE-{self.domain[:3].upper()}-{fp[:12]}"
+        domain_code = DOMAIN_CODES.get(self.domain, self.domain[:3].upper())
+        cell_id = f"HIVE-{domain_code}-{fp[:12]}"
 
         return JellyScoreResult(
             score=score,
