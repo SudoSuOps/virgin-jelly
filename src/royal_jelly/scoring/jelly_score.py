@@ -188,8 +188,11 @@ class JellyScorer:
         )
 
         # -- 2. Source confidence --
-        entity_count = 0
-        signal_age_hours = 0.0
+        # When SignalOrigin is absent, assume reasonable baselines.
+        # Absence of metadata does NOT mean the signal is bad — it means
+        # we don't have the metadata yet. Default to optimistic middle
+        # ground that content quality (gates + reasoning) can push to
+        # royal_jelly without signal metadata being a gatekeeper.
         if signal:
             entity_count = len(signal.entities)
             now = datetime.now(timezone.utc)
@@ -199,6 +202,11 @@ class JellyScorer:
             signal_age_hours = (now - collected).total_seconds() / 3600.0
             sw = signal.source_weight
         else:
+            # Metadata-absent baseline: assume 5 entities (moderate richness),
+            # fresh signal (0 hours), 1 cross-source confirmation.
+            entity_count = 5
+            signal_age_hours = 0.0
+            cross_source_count = max(cross_source_count, 1)
             sw = self.source_weight
 
         source_confidence = _compute_source_confidence(
