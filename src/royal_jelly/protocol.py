@@ -37,8 +37,11 @@ SOURCE_WEIGHTS = {
     "edgar": 0.9,
     "fred": 0.9,
     "human": 0.9,
+    "openalex": 0.85,
+    "arxiv": 0.80,
     "uli": 0.8,
-    "openalex": 0.85,  # Peer-reviewed research papers — real source, Royal Jelly candidate
+    "zenodo": 0.78,
+    "github": 0.72,
     "cre_news": 0.65,
     "rss": 0.6,
     "webhook": 0.6,
@@ -74,10 +77,43 @@ DOMAIN_CONCEPTS = {
     "medical": [
         "patient", "diagnosis", "treatment", "dosage", "clinical",
         "contraindication", "adverse", "protocol", "trial", "endpoint",
+        "biomarker", "cohort", "efficacy", "pathology", "therapeutic",
     ],
     "aviation": [
         "aircraft", "runway", "faa", "maintenance", "airspace",
         "atc", "metar", "ifr", "vfr", "approach", "clearance",
         "turbine", "flap", "altitude", "knots",
+    ],
+    "ai": [
+        "model", "training", "inference", "benchmark", "dataset",
+        "transformer", "attention", "embedding", "parameter", "fine-tune",
+        "accuracy", "loss", "gradient", "architecture", "encoder",
+        "decoder", "token", "latent", "representation", "evaluation",
+        "baseline", "ablation", "performance", "framework", "pipeline",
+    ],
+    "economic": [
+        "gdp", "inflation", "interest rate", "unemployment", "yield",
+        "monetary", "fiscal", "deficit", "surplus", "fed", "treasury",
+        "cpi", "pce", "employment", "recession", "growth",
+    ],
+    "energy": [
+        "solar", "battery", "renewable", "grid", "power", "electricity",
+        "emission", "carbon", "megawatt", "capacity", "generation",
+        "turbine", "photovoltaic", "efficiency", "storage", "kwh",
+    ],
+    "climate": [
+        "temperature", "emission", "carbon", "greenhouse", "warming",
+        "sea level", "precipitation", "drought", "permafrost", "ice",
+        "deforestation", "ecosystem", "biodiversity", "sustainability",
+    ],
+    "crypto": [
+        "blockchain", "token", "smart contract", "consensus", "hash",
+        "wallet", "defi", "liquidity", "staking", "validator",
+        "protocol", "transaction", "decentralized", "ledger",
+    ],
+    "legal": [
+        "statute", "regulation", "compliance", "court", "filing",
+        "jurisdiction", "liability", "precedent", "enforcement",
+        "legislation", "amendment", "ruling", "arbitration",
     ],
 }
