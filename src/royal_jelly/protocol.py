@@ -116,4 +116,28 @@ DOMAIN_CONCEPTS = {
         "jurisdiction", "liability", "precedent", "enforcement",
         "legislation", "amendment", "ruling", "arbitration",
     ],
+    "finance": [
+        "revenue", "earnings", "eps", "margin", "guidance", "valuation",
+        "dividend", "equity", "debt", "balance sheet", "cash flow",
+        "income statement", "quarterly", "annual", "profit", "loss",
+        "shareholder", "acquisition", "merger", "ipo", "underwriter",
+    ],
+    "software": [
+        "api", "deployment", "latency", "throughput", "microservice",
+        "container", "kubernetes", "database", "ci/cd", "repository",
+        "dependency", "runtime", "scalability", "middleware", "endpoint",
+        "refactor", "migration", "architecture", "backend", "frontend",
+    ],
+    "supply_chain": [
+        "logistics", "inventory", "procurement", "warehouse", "fulfillment",
+        "tariff", "freight", "supplier", "lead time", "demand forecast",
+        "distribution", "manufacturing", "customs", "shipping", "sourcing",
+        "disruption", "resilience", "just-in-time", "backlog",
+    ],
+    "patents": [
+        "claim", "prior art", "specification", "embodiment", "apparatus",
+        "method", "assignee", "patent office", "filing date", "priority",
+        "novelty", "inventive step", "prosecution", "examiner", "grant",
+        "infringement", "licensing", "continuation", "provisional",
+    ],
 }
